@@ -1,3 +1,5 @@
+/*This class is responsible for displaying the values of the Sudoku grid computed using SudokuSolver.
+ * It uses a table and with cells that cannot be edited. It uses CSVReadWrite to read the input from a CSV file and then uses SudokuSolver to solve the puzzle and displays the solution */
 package com.insight.sudokusolver.display;
 
 import java.awt.GridBagConstraints;
@@ -35,7 +37,7 @@ public class DisplaySudoku {
 	    c.fill = GridBagConstraints.HORIZONTAL;
 	    c.anchor = GridBagConstraints.CENTER;
 
-	    // table 
+	    // table with cells that cannot be edited
 	    tableModel = new DefaultTableModel(size,size){
 	    	@Override
 	    	public boolean isCellEditable(int row,int column){
@@ -80,8 +82,6 @@ public class DisplaySudoku {
 	       }		
 	}
 
-
-	/* class variables and methods */
 
 	private static void createAndShowGUI(int[][] sudoku_grid,int[][] color_grid)
 	{
