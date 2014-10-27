@@ -47,7 +47,7 @@ public class DisplaySudoku {
 	    table.setColumnSelectionAllowed(false);
 	    table.setRowSelectionAllowed(false);
 
-	    //theTable.setGridColor(Color.black);
+	    //table.setGridColor(Color.black);
 	    table.setDefaultRenderer(Object.class,new CustomTableCellRenderer(color_grid));
 
 
