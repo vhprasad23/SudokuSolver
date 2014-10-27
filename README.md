@@ -39,7 +39,7 @@ which represents:
 [logo]: https://github.com/vhprasad23/SudokuSolver/blob/master/SudokuSolver/Images/solved_sudoku.png  
 
 
-SudokuSolver implements 2 core funcionalities - display and solver. To use this project, place the input CSV files in the InputCSV directory and provide the filename in the DisplaySudoku class. The output CSV file is generated in the OutputCSV directory with the following naming convention : Solved\<Inputfilename\>.csv . A solved sudoku display also pops up showing the filled in values in green and provided values in white.
+SudokuSolver implements 2 core functionalities - display and solver. To use this project, place the input CSV files in the InputCSV directory and provide the filename in the DisplaySudoku class. The output CSV file is generated in the OutputCSV directory with the following naming convention : Solved\<Inputfilename\>.csv . A solved sudoku display also pops up showing the filled in values in green and provided values in white.
 
 
 
