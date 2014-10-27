@@ -20,7 +20,7 @@ which represents:
 
 
 
-The output should be:
+The output is:
 
 1,3,5,2,9,7,8,6,4  
 9,8,2,4,1,6,7,5,3  
