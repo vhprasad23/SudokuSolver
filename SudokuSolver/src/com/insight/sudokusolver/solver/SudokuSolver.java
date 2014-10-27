@@ -52,7 +52,7 @@ public class SudokuSolver {
 		
 	}
 	
-	//This function checks if values used in a certain row and column is valid. It ensures that value is not repeated in the row, column or corresponding 3x3 mini-grid.
+	//This function checks if values used in a certain row and column is valid. It ensures that value is not repeated in the row, column or corresponding mini-grid.
 	public boolean isValid(int[][] sudoku_grid,int row,int col,int value){
 		if(isRowEntryValid(sudoku_grid,row,col,value) && isColEntryValid(sudoku_grid,row,col,value) && isMiniGridEntryValid(sudoku_grid,row,col,value))
 			return true;
@@ -83,7 +83,7 @@ public class SudokuSolver {
 		
 	}
 	
-	//Checks if a value has already been used in the corresponding 3x3 mini-grid.
+	//Checks if a value has already been used in the corresponding mini-grid.
 	public boolean isMiniGridEntryValid(int[][] sudoku_grid,int row,int col,int value){
 		int grid_row_lower_bound,grid_row_upper_bound;
 		int grid_col_lower_bound,grid_col_upper_bound;
@@ -97,11 +97,28 @@ public class SudokuSolver {
 		
 		for(int i=grid_row_lower_bound;i<=grid_row_upper_bound;i++){
 			for(int j=grid_col_lower_bound;j<=grid_col_upper_bound;j++){
-				if(sudoku_grid[i][j]==value)
+				if(i!=row && j!= col && sudoku_grid[i][j]==value)
 					return false;
 			}
 		}
 		return true;	
+	}
+	
+	public void isInputSudokuValid(int[][] sudoku_grid){
+		int temp;
+		for(int i=0;i<sudoku_grid.length;i++){
+			for(int j=0;j<sudoku_grid[0].length;j++){
+				temp=sudoku_grid[i][j];
+				if(temp>0){
+					if(!isValid(sudoku_grid,i,j,temp)){
+						throw new IllegalArgumentException("Invalid input Sudoku entries. Values are repeated in row,column or mini-grid!");
+					}
+				}
+				if(temp<0 || temp>MAX_GRID_VAL)
+					throw new IllegalArgumentException("Input values are out of range!");
+					
+			}
+		}
 	}
 	
 	//Function to print out all the values of the Sudoku grid
@@ -114,6 +131,8 @@ public class SudokuSolver {
 		}
 			
 	}
+	
+	
 	
 	/*This helper function is used in the DisplaySudoku class in deciding whether to color a cell green or white. 
 	 * A white background indicates that cell value was provided to us in the input CSV file. Green represents a calculated value*/ 

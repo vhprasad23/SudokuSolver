@@ -98,6 +98,10 @@ public class DisplaySudoku {
 		int[][] sudoku_grid = new int[9][9];
 		int[][] color_grid = new int[9][9];
 		sudoku_grid=CSVReadWrite.readReturn2Darray(input_file,9,9);
+		
+		//First check if the inputs are valid
+		s.isInputSudokuValid(sudoku_grid);
+		
 		color_grid=SudokuSolver.returnColorGrid(sudoku_grid);
 		result=s.isCompleteGrid(sudoku_grid);
 		if(result==true){
